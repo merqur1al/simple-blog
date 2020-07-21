@@ -1,0 +1,16 @@
+{%extends 'blogs/base.html'%}
+{% load bootstrap3 %}
+
+{% block header%}
+<h1>
+	<center>This is a simple blog for your entries.</center>
+</h1>
+{% endblock header %}
+
+{%block content%}
+
+<h2>
+	<center><a href="{% url 'users:register'%}">Create your account</a> to write your own blog and start learn something new</center>
+</h2>
+
+{%endblock content%}

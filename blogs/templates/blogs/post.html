@@ -1,0 +1,24 @@
+{%extends 'blogs/base.html'%}
+
+
+{% block header %}
+<h2>
+	{{post}}:	
+</h2>
+{% endblock header %}
+
+{%block content%}
+<div class="panel panel-default">
+<div class='panel-body'>
+	<h4>
+		{{post_text}}
+	</h4>
+</div>
+	<div class="panel-heading">
+		{{post.date_added|date:'d M,Y H:m:s'}} | Author:{{username}}
+	</div>
+</div>
+<p></p>
+<div><a href="{% url 'blogs:edit_post' post.id%}">add/edit entry</a></div>
+
+{%endblock content%}
