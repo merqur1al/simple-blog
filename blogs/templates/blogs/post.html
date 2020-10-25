@@ -2,6 +2,19 @@
 
 
 {% block header %}
+<ul class='pagination'>
+	<li class="page-item">
+		{% if previous_post %}
+		<a class ='page-link' href="{% url 'blogs:post' previous_post.id %}">Previous</a>
+		{% endif %}
+	</li>
+	
+	<li class="page-item">
+		{% if next_post %}
+		<a class ='page-link' href="{% url 'blogs:post' next_post.id %}">Next</a>
+		{% endif %}
+	</li>
+</ul>
 <h2>
 	{{post}}:	
 </h2>
@@ -12,13 +25,18 @@
 <div class='panel-body'>
 	<h4>
 		{{post_text}}
+		{% if post.image %}
+			<p><center><img src="{{ post.image.url }}" width="240"></center></p>
+		{% endif %}
 	</h4>
 </div>
 	<div class="panel-heading">
-		{{post.date_added|date:'d M,Y H:m:s'}} | Author:{{username}}
+		Published:{{post.date_added|date:'d M,Y H:m'}} . Edit:{{post.date_edit|date:'d M,Y H:m'}} . Author:{{username}}
 	</div>
 </div>
 <p></p>
 <div><a href="{% url 'blogs:edit_post' post.id%}">add/edit entry</a></div>
+
+
 
 {%endblock content%}

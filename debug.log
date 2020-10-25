@@ -1,0 +1,2 @@
+[1021/210509.353:ERROR:settings.cc(430)] Settings version is not 5
+[1022/024642.373:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)

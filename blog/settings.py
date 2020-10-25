@@ -124,6 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'blogs/media')
 #My settings
 LOGIN_URL = '/users/login'
 
@@ -131,23 +133,22 @@ LOGIN_URL = '/users/login'
 BOOTSTRAP3 = {
     'include_jquery':True,
 }
-
-
-#Heroku settings
-
+'''
 import dj_database_url
 DATABASES = {
-'deafult':dj_database_url.config(default = 'postgres://localhost')
+    'default':dj_database_url.config(default='postgres://localhost')
 }
-
-#Поддержка заголовка 'X-FORWARDED-PROTO' for request.is_secure().
+#Поддержка заголовка 'X-Forwarded-Proto' для request.is_secure().
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
 
-#Every title is available.
-ALLOWED_HOSTS = [*]
+#Разрешены все заголовки хостов
+ALLOWED_HOSTS = ['so-ez-blog.herokuapp.com']
 
-#Static resourses configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATICROOT = 'staticfiles'
+STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR,'staticfiles'))
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'))
+    os.path.join(BASE_DIR,'static'),
+)
+
+DEBUG = False
+'''
